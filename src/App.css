@@ -1,0 +1,152 @@
+* { box-sizing: border-box; }
+
+body {
+  background: #0d0d1a;
+  color: #eee;
+}
+
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: system-ui, sans-serif;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, #8a2be2, #00bfff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+section h2 {
+  border-bottom: 2px solid #8a2be2;
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+/* Blockchain demo */
+.chain {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.block-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.block {
+  background: #1a1a2e;
+  border: 2px solid #8a2be2;
+  padding: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.block:hover, .block.active {
+  background: #8a2be2;
+}
+
+.link {
+  color: #00bfff;
+  font-size: 1.2rem;
+}
+
+.block-details {
+  margin-top: 1rem;
+  background: #1a1a2e;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tab {
+  padding: 0.5rem 1rem;
+  border: 1px solid #8a2be2;
+  background: transparent;
+  color: #eee;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: #8a2be2;
+}
+
+/* Concept cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: #1a1a2e;
+  border: 1px solid #333;
+  padding: 1.5rem 1rem;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+
+.card:hover {
+  border-color: #00bfff;
+}
+
+.card.flipped {
+  background: #00bfff;
+  color: #0d0d1a;
+  font-size: 0.85rem;
+}
+
+/* Quiz */
+.quiz-options button {
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  background: #8a2be2;
+  color: white;
+  cursor: pointer;
+}
+
+.feedback {
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+.feedback.correct { color: #4ade80; }
+.feedback.wrong { color: #f87171; }
+
+.footer {
+  text-align: center;
+  color: #888;
+  margin-top: 3rem;
+  font-size: 0.9rem;
+}
