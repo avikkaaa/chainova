@@ -116,7 +116,7 @@ function App() {
       </section>
 
       <section id="eras" className="era-tabs">
-        <h2>Web1 to Web2 to Web3</h2>
+        <h2>Web1 → Web2 → Web3</h2>
         <div className="tabs">
           {Object.keys(webEras).map(function (era) {
             return (
