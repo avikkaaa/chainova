@@ -96,7 +96,7 @@ function App() {
       </section>
 
       <section id="blockchain" className="blockchain-demo">
-        <h2>🔗 Blockchain 101</h2>
+        <h2>🔗 Blockchain</h2>
         <p className="subtext">Tap a block to peek inside.</p>
         <div className="chain">
           {blocks.map((block) => (
