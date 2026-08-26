@@ -227,6 +227,7 @@ section h2 {
   color: #ccc;
   border-radius: 20px;
   cursor: pointer;
+  justify-content: center;
 }
 
 .tab.active {
