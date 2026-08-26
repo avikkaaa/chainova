@@ -1,5 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
+
+const notebookSteps = [
+  { title: '📖 Imagine a Notebook', text: 'Everyone in the group has an identical copy of the same notebook.' },
+  { title: '✍️ Someone Writes an Entry', text: '"Alice paid Bob ₹500." Everyone adds this to their own copy at the same time.' },
+  { title: '🔒 The Page Gets Sealed', text: "Once written, that page can't be erased or edited — only new pages can be added." },
+  { title: '🤝 Everyone Agrees', text: "Before it's accepted, most copies must match. If someone tries to cheat, their copy won't match the rest." },
+  { title: '⛓ Pages Link Together', text: 'Each new page references the one before it — creating an unbreakable chain of history.' },
+];
 
 const concepts = [
   { icon: '🌐', term: 'Decentralization', def: 'No single owner — run by thousands of computers.' },
@@ -14,44 +22,19 @@ const webEras = {
   Web3: 'Read-write-own. You own your data and assets.',
 };
 
-const blocks = [
-  { id: 1, data: 'Genesis Block', hash: '0xA1B2', prev: '0000' },
-  { id: 2, data: 'Alice → Bob: 5 coins', hash: '0xC3D4', prev: '0xA1B2' },
-  { id: 3, data: 'Bob → Charlie: 2 coins', hash: '0xE5F6', prev: '0xC3D4' },
-];
-
 const quiz = [
   { q: 'Is Web3 controlled by one company?', options: ['Yes', 'No'], answer: 'No' },
   { q: 'What proves ownership of a digital item?', options: ['NFT', 'Cookie'], answer: 'NFT' },
   { q: 'What runs automatically on-chain?', options: ['Smart Contract', 'Email'], answer: 'Smart Contract' },
 ];
 
-function useCountUp(target, duration = 1500) {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    let start = 0;
-    const stepTime = Math.max(Math.floor(duration / target), 10);
-    const timer = setInterval(() => {
-      start += 1;
-      setCount(start);
-      if (start >= target) clearInterval(timer);
-    }, stepTime);
-    return () => clearInterval(timer);
-  }, [target, duration]);
-  return count;
-}
-
 function App() {
   const [activeEra, setActiveEra] = useState('Web3');
   const [flipped, setFlipped] = useState(null);
-  const [selectedBlock, setSelectedBlock] = useState(null);
+  const [step, setStep] = useState(0);
   const [quizIndex, setQuizIndex] = useState(0);
   const [feedback, setFeedback] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const members = useCountUp(120);
-  const events = useCountUp(15);
-  const projects = useCountUp(8);
 
   function handleQuizAnswer(option) {
     const correct = quiz[quizIndex].answer === option;
@@ -89,35 +72,29 @@ function App() {
         <button className="cta" onClick={() => scrollTo('blockchain')}>Explore ↓</button>
       </header>
 
-      <section className="stats">
-        <div className="stat"><span>{members}+</span>Members</div>
-        <div className="stat"><span>{events}</span>Events</div>
-        <div className="stat"><span>{projects}</span>Projects</div>
-      </section>
-
       <section id="blockchain" className="blockchain-demo">
-        <h2>🔗 Blockchain</h2>
-        <p className="subtext">Tap a block to peek inside.</p>
-        <div className="chain">
-          {blocks.map((block) => (
-            <div key={block.id} className="block-wrapper">
-              <div
-                className={`block ${selectedBlock === block.id ? 'active' : ''}`}
-                onClick={() => setSelectedBlock(selectedBlock === block.id ? null : block.id)}
-              >
-                #{block.id}
-              </div>
-              {block.id < blocks.length && <div className="link">→</div>}
-            </div>
+        <h2>🔗 What is a Blockchain?</h2>
+        <p className="subtext">Think of it like a notebook everyone shares.</p>
+
+        <div className="notebook-card">
+          <h3>{notebookSteps[step].title}</h3>
+          <p>{notebookSteps[step].text}</p>
+        </div>
+
+        <div className="step-dots">
+          {notebookSteps.map((_, i) => (
+            <span
+              key={i}
+              className={`dot ${i === step ? 'active' : ''}`}
+              onClick={() => setStep(i)}
+            />
           ))}
         </div>
-        {selectedBlock && (
-          <div className="block-details">
-            <p><strong>Data:</strong> {blocks[selectedBlock - 1].data}</p>
-            <p><strong>Hash:</strong> {blocks[selectedBlock - 1].hash}</p>
-            <p><strong>Prev:</strong> {blocks[selectedBlock - 1].prev}</p>
-          </div>
-        )}
+
+        <div className="step-buttons">
+          <button disabled={step === 0} onClick={() => setStep(step - 1)}>← Back</button>
+          <button disabled={step === notebookSteps.length - 1} onClick={() => setStep(step + 1)}>Next →</button>
+        </div>
       </section>
 
       <section id="eras" className="era-tabs">
@@ -174,7 +151,7 @@ function App() {
       </section>
 
       <footer className="footer">
-        <p>⛓by Avika </p>
+        <p>⛓ Chainova — Web3 & Blockchain Society</p>
       </footer>
     </div>
   );
