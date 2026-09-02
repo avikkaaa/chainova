@@ -1,16 +1,9 @@
-# React + Vite
+# Chainova
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Chainova is a frontend project exploring how blockchain and Web3 concepts can be presented through a clean, modern web interface. It's built as a base for a decentralized-application (dApp) style frontend — the kind of UI layer that would eventually sit on top of smart contracts, wallets, and on-chain data.
 
-Currently, two official plugins are available:
+**Live site:** [chainova-zeta.vercel.app](https://chainova-zeta.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Why Blockchain & Web3
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Blockchain is a decentralized, tamper-resistant ledger — instead of one central authority controlling data, it's distributed across a network of nodes that all agree on the same state. Web3 builds
